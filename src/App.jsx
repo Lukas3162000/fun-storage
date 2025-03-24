@@ -3,6 +3,7 @@ import"./App.css";
 
 function App() {
   const [users, setUsers] = useState([]); // Nutzerdaten aus der API
+  const [searchTerm, setSearchTerm] = useState();
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")

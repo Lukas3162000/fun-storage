@@ -1,0 +1,78 @@
+Klar! Hier ist eine kleine Aufgabe, die genau auf dein aktuelles Wissen abgestimmt ist:  
+
+### **Aufgabe: User-Suche mit API und URL-Params**  
+
+**Ziel:** Erstelle eine kleine React-App, die eine Liste von Nutzern von einer API lädt. Die Nutzerliste soll durch eine Suchleiste gefiltert werden, wobei der aktuelle Suchbegriff in der URL als Query-Parameter gespeichert wird.  
+
+#### **Schritte:**  
+1. **API-Daten abrufen:**  
+   - Nutze `fetch` oder `axios`, um Nutzerdaten von `https://jsonplaceholder.typicode.com/users` zu holen.  
+   - Speichere die Daten mit `useState` und lade sie beim ersten Render mit `useEffect`.  
+
+2. **Suchfunktion:**  
+   - Baue ein Input-Feld, in das der Benutzer einen Namen eingeben kann.  
+   - Nutze `useState`, um den aktuellen Suchbegriff zu speichern.  
+   - Filtere die Nutzerdaten basierend auf dem Suchbegriff.  
+
+3. **Query-Parameter verwalten:**  
+   - Wenn sich die Suche ändert, speichere den Wert in der URL mit `URLSearchParams`.  
+   - Nutze `useLocation` und `useEffect`, um beim Seitenaufruf den Query-Parameter auszulesen und das Input-Feld entsprechend zu setzen.  
+
+---
+
+### **HTML & CSS (bereitgestellt, damit du dich auf Logik konzentrieren kannst)**  
+
+**CSS:**  
+```css
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+```
+
+**HTML (JSX in React verwenden)**  
+```jsx
+<div className="container">
+  <h2>Benutzerliste</h2>
+  <input
+    type="text"
+    placeholder="Suche nach Namen..."
+    value={searchTerm} 
+    onChange={(e) => setSearchTerm(e.target.value)}
+  />
+  <ul className="user-list">
+    {filteredUsers.map(user => (
+      <li key={user.id}>{user.name}</li>
+    ))}
+  </ul>
+</div>
+```
+
+### **Bonus (optional):**  
+✅ Falls du mehr Herausforderung willst, füge eine `Ladeanimation` ein, wenn die Daten noch nicht geladen sind.  
+✅ Zeige eine `Meldung`, wenn kein Benutzer gefunden wurde.  
+✅ Erweitere die Filterfunktion, sodass nicht nur nach Namen, sondern auch nach Städten gefiltert werden kann.  
+
+Lass mich wissen, falls du Fragen hast! 🚀

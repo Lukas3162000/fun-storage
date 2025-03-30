@@ -1,3 +1,8 @@
+body{
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
 .container {
   max-width: 600px;
   margin: 20px auto;
@@ -8,7 +13,7 @@
   background: #fff;
 }
 
-input {
+.InputField {
   width: 80%;
   padding: 10px;
   margin-bottom: 10px;
@@ -24,4 +29,16 @@ input {
 .user-list li {
   padding: 10px;
   border-bottom: 1px solid #ddd;
+}
+
+.CheckSpace{
+  display: flex;
+  justify-content: flex-start;
+  justify-self: center;
+  width: 80%;
+  padding: 10px;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  font-weight: 600;
 }

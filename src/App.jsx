@@ -83,20 +83,20 @@ function App() {
   return (
     <div className="container">
       <h2>🔍 Benutzerliste</h2>
+      <div className="positioner">
       <input type="text" placeholder="Suche nach Namen..." value={searchTerm} onChange={eventHandler} className="InputField"/>
+        <div className="CheckSpace">
+          <label htmlFor="all">Alle</label>
+          <input type="checkbox" id="all" name="alle_tasks" onChange={handleChange1} checked={isChecked1}/>
 
-      <div className="CheckSpace">
-        <label htmlFor="all">Alle</label>
-        <input type="checkbox" id="all" name="alle_tasks" onChange={handleChange1} checked={isChecked1}/>
+          <label htmlFor="open">Offen</label>
+         <input type="checkbox" id="open" name="offene_tasks" onChange={handleChange2} checked={isChecked2}/>
 
-        <label htmlFor="open">Offen</label>
-        <input type="checkbox" id="open" name="offene_tasks" onChange={handleChange2} checked={isChecked2}/>
+          <label htmlFor="done">Done</label>
+          <input type="checkbox" id="done" name="done_tasks" onChange={handleChange3} checked={isChecked3}/>
 
-        <label htmlFor="done">Done</label>
-        <input type="checkbox" id="done" name="done_tasks" onChange={handleChange3} checked={isChecked3}/>
-
+        </div>
       </div>
-
       <ul className="user-list">
         {filteredSearchTasks.map((tasks) => (
           <li key={tasks.id}>{tasks.text}</li>

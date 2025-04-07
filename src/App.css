@@ -3,6 +3,11 @@ body{
   font-size: 18px;
 }
 
+h3{
+  display: flex;
+  justify-content: flex-start;
+}
+
 .container {
   max-width: 600px;
   margin: 20px auto;
@@ -19,7 +24,7 @@ body{
 }
 
 .InputField {
-  width: 50%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ddd;
@@ -46,4 +51,37 @@ body{
   gap: 6px;
   font-size: 1rem;
   font-weight: 600;
+}
+
+form{
+ padding-top: 20px;
+ padding-bottom: 20px;
+
+}
+
+form input{
+display: flex;
+justify-content: center;
+width: 70%;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+li{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn{
+  border: 2px solid red;
+  border-radius: 20px;
+  padding: 4px;
+  margin-left: 12px;
+  background-color: #ffffff00;
+}
+
+.btn:hover{
+  background-color: rgb(253, 193, 193);
+  color: white;
 }

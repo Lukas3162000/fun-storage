@@ -62,6 +62,27 @@ function App() {
     setNewTasks(filteredTasks);
   }
 
+  //Neue Todos
+  const [newTodoText,setNewTodoText] = useState("");
+  function handleAddToDo(event){
+    event.preventDefault();
+    if(newTodoText.trim() !==""){
+    const newTodo = {
+      id: toDos.length+1,
+      text: newTodoText,
+      done: false,
+    };
+    setToDos([...toDos, newTodo]);
+    setNewTodoText("");
+  }
+  }
+
+  //Todos löschen-handler
+  function handleDeletion(id){
+    const updatedToDos = toDos.filter(toDos => toDos.id !== id);
+    setToDos(updatedToDos);
+  }
+
   useEffect(()=>{
     updateTasks();
   },[isChecked1,isChecked2,isChecked3, toDos])
@@ -84,22 +105,29 @@ function App() {
     <div className="container">
       <h2>🔍 Benutzerliste</h2>
       <div className="positioner">
-      <input type="text" placeholder="Suche nach Namen..." value={searchTerm} onChange={eventHandler} className="InputField"/>
-        <div className="CheckSpace">
-          <label htmlFor="all">Alle</label>
-          <input type="checkbox" id="all" name="alle_tasks" onChange={handleChange1} checked={isChecked1}/>
+        <input type="text" placeholder="Suche" value={searchTerm} onChange={eventHandler} className="InputField"/>
+          <div className="CheckSpace">
+            <label htmlFor="all">Alle</label>
+            <input type="checkbox" id="all" name="alle_tasks" onChange={handleChange1} checked={isChecked1}/>
 
-          <label htmlFor="open">Offen</label>
-         <input type="checkbox" id="open" name="offene_tasks" onChange={handleChange2} checked={isChecked2}/>
+            <label htmlFor="open">Offen</label>
+            <input type="checkbox" id="open" name="offene_tasks" onChange={handleChange2} checked={isChecked2}/>
 
           <label htmlFor="done">Done</label>
           <input type="checkbox" id="done" name="done_tasks" onChange={handleChange3} checked={isChecked3}/>
-
         </div>
       </div>
+
+      
+      <form>
+      <label>➕ Aufgabe hinzufügen</label>
+        <input type="text" placeholder="Notiz schreiben..." value={newTodoText} onChange={(e) => {setNewTodoText(e.target.value)}}/>
+        <input type="submit" value="Submit" onClick={handleAddToDo} />
+      </form>
+
       <ul className="user-list">
         {filteredSearchTasks.map((tasks) => (
-          <li key={tasks.id}>{tasks.text}</li>
+          <li key={tasks.id}>{tasks.text}<button className="btn" onClick={() => handleDeletion(tasks.id)}>❌</button></li>
         ))}
       </ul>
     </div>

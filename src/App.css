@@ -86,3 +86,28 @@ li{
   background-color: rgb(253, 193, 193);
   color: white;
 }
+
+
+.user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-list li {
+  padding: 10px;
+  margin-bottom: 8px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.2s ease;
+}
+
+.user-list li:active {
+  background-color: #a8a8a8;
+}
+
+.user-list li.dragging {
+  background-color: #a8a8a8;
+}
+
